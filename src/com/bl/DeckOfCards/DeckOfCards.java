@@ -18,18 +18,16 @@ public class DeckOfCards {
 	}
 
 	public static void shuffleCards() {
-		
 
 		String[] SUITS = { "Clubs", "Diamonds", "Hearts", "Spades" };
 
 		String[] RANKS = { "2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King", "Ace" };
-		
+
 		Arrays.sort(RANKS);
 		System.out.println(" ranks sort : " + Arrays.toString(RANKS));
-		
+
 		String[] player = { "player1", "player2", "player3", "player4" };
 
-		
 		int numOfCards = SUITS.length * RANKS.length;
 		// System.out.println("cards are : " + numOfCards);
 
@@ -41,8 +39,7 @@ public class DeckOfCards {
 
 			for (int j = 0; j < SUITS.length; j++) {
 				deck[SUITS.length * i + j] = RANKS[i].toString() + " " + SUITS[j].toString();
-				
-		
+
 			}
 
 		}
@@ -61,25 +58,36 @@ public class DeckOfCards {
 		}
 
 		for (int i = 1; i <= PLAYERS; i++) {
-			
+
 			System.out.print("Player : " + i + " -> ");
-			//System.out.println("                                    ");
+			// System.out.println(" ");
 			for (int j = 0; j < CARDS_OF_EACH_PLAYER; j++) {
-				//System.out.println(player[i] +"  ");
+				// System.out.println(player[i] +" ");
 				Arrays.sort(deck);
 				System.out.print((deck[j] + "    "));
 			}
-			
+
 			System.out.println();
 		}
-	
-		
-	
-	}
-	
-	
-	
 
-	
-	
+		LinkedList<String> players = new LinkedList<String>();
+		players.add(player[0]);
+		players.add(player[1]);
+		players.add(player[2]);
+		players.add(player[3]);
+		// al.add(RANKS[4]);
+		System.out.println("Players are in queue : " + players);
+
+		for (int i = 1; i <= PLAYERS; i++) {
+			for (int j = 0; j < CARDS_OF_EACH_PLAYER; j++) {
+				
+				LinkedList<String> cards = new LinkedList<String>();
+				cards.add(deck[j]);
+				
+				Arrays.sort(deck);
+				System.out.print((deck[j] + "    "));
+
+			}
+		}
+	}
 }
